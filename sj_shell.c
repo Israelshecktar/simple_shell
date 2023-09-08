@@ -32,7 +32,13 @@ int main(void)
 
 			if (strcmp(input, "exit") == 0)
 			{
-				break; /* exit the loop if 'exit' is entered */
+				break;
+			}
+
+			if (strcmp(input, "env") == 0)
+			{
+				hndl_env();
+				continue;
 			}
 
 			Ex_prompt(input);

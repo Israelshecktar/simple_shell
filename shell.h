@@ -18,5 +18,5 @@ char *find_cmd_path(const char *command);
 
 /**********externs***********/
 extern char **environ;
-
+void hndl_env(void);
 #endif /* SHELL_H */

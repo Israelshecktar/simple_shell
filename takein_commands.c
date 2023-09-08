@@ -26,5 +26,8 @@ char *take_inputs(char *input, size_t insize, FILE *stream)
 	}
 	/* Remove new_line in the string */
 	input[strcspn(input, "\n")] = '\0';
+
+	free(input);
+
 	return (input);
 }

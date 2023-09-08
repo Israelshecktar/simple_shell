@@ -27,6 +27,8 @@ void tkn_prompt(char *input)
 		{
 			perror("fork");
 			exit(EXIT_FAILURE);
+
+			free(argv);
 		}
 		else if (child_pid == 0)
 		{

@@ -8,21 +8,21 @@ void Ex_prompt(const char *input)
 {
 	char *cmd_path = find_cmd_path(input);
 
-		if (cmd_path != NULL)
+		if (input == NULL || strlen(input) == 0)
 		{
+			shecktar_write("Command invalid or empty, please provide a command.\n");
+			return;
+		}
+			if (cmd_path != NULL)
+			{
 			pid_t child_pid = fork();
-			/* function initiates child process */
-
 		if (child_pid == -1)
 		{
-			perror("fork");
-			exit(EXIT_FAILURE);
+			perror("Error: fork failed");
+			return;
 		}
 		else if (child_pid == 0)
-		/* while child process is running */
-
 		{
-			/* execute the command with this path */
 			char *argv[2];
 
 			argv[0]  = cmd_path;
@@ -30,12 +30,11 @@ void Ex_prompt(const char *input)
 
 			if (execve(cmd_path, argv, environ) == -1)
 			{
-				perror("execve");
+				perror("Error: execve failed");
 				exit(EXIT_FAILURE);
 			}
 		}
 			else
-			/* parent process must wait */
 			{
 				wait(NULL);
 			}
@@ -44,6 +43,7 @@ void Ex_prompt(const char *input)
 			}
 				else
 			{
-				fprintf(stderr, "%s: Error, command not found\n", input);
+				shecktar_write(input);
+				shecktar_write(": Error, command not found\n");
 			}
 }

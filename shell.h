@@ -1,6 +1,8 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+
+
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
@@ -14,6 +16,9 @@ void Ex_prompt(const char *command);
 char *take_inputs(char *input, size_t insize, FILE *stream);
 void tkn_prompt(char *input);
 char *find_cmd_path(const char *command);
+
+/********my_getline function******/
+char *shecktar_getline(char *buffer, size_t size, FILE *stream);
 
 
 /**********externs***********/

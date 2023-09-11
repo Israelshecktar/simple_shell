@@ -40,8 +40,7 @@ int main(void)
 			}
 
 			command = sj_get_input(input);
-			Ex_prompt(command[0]);
-
+			Ex_prompt(command);
 			free(command);
 		}
 

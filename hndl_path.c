@@ -1,22 +1,27 @@
 #include "shell.h"
+
 /**
 * find_cmd_path - function searches for a command in path
 * @command: sring passsed as command in stdin
 * Return: cmd_path
 */
-char *find_cmd_path(const char *command)
+char *find_cmd_path(char *command)
 {
 		char *path_copy;
 		char *token;
 		char *cmd_path = NULL;
 		char *path = getenv("PATH");
+		struct stat buffer;
 
 		if (path == NULL)
 		{
 			sj_fprintf(stderr, "Error, PATH enviroment not found\n");
 			return (NULL);
 		}
-
+		if (stat(command, &buffer) == 0)
+			{
+				return (command);
+			}
 		path_copy = strdup(path);
 		token = strtok(path_copy, ":");
 
@@ -36,9 +41,10 @@ char *find_cmd_path(const char *command)
 
 		if (cmd_path == NULL && access(command, X_OK) == 0)
 		{
+			printf("%s\n", command);
 			cmd_path = strdup(command);
 		}
 			/* But if command is still not found */
-		free(path_copy);
+
 		return (cmd_path);
 }

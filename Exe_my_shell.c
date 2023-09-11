@@ -4,11 +4,11 @@
 * @input: set of instructed as stdin
 * Return: void
 */
-void Ex_prompt(const char *input)
+void Ex_prompt(char **input)
 {
-	char *cmd_path = find_cmd_path(input);
+	char *cmd_path = find_cmd_path(input[0]);
 
-		if (input == NULL || strlen(input) == 0)
+		if (input[0] == NULL || strlen(input[0]) == 0)
 		{
 			shecktar_write("Command invalid or empty, please provide a command.\n");
 			return;
@@ -23,12 +23,8 @@ void Ex_prompt(const char *input)
 		}
 		else if (child_pid == 0)
 		{
-			char *argv[2];
 
-			argv[0]  = cmd_path;
-			argv[1] = NULL;
-
-			if (execve(cmd_path, argv, environ) == -1)
+			if (execve(cmd_path, input, environ) == -1)
 			{
 				perror("Error: execve failed");
 				exit(EXIT_FAILURE);
@@ -39,11 +35,11 @@ void Ex_prompt(const char *input)
 				wait(NULL);
 			}
 
-			free(cmd_path);
 		}
 		else
 		{
-			shecktar_write(input);
+			shecktar_write(input[0]);
 			shecktar_write(": Error, command not found\n");
+			free(cmd_path);
 		}
 }

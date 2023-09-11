@@ -10,13 +10,14 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stdarg.h>
+#include <sys/stat.h>
 
 void shecktar_write(const char *input);
 void my_prompt(void);
-void Ex_prompt(const char *command);
+void Ex_prompt(char **input);
 char *take_inputs(char *input, size_t insize, FILE *stream);
 void tkn_prompt(char *input);
-char *find_cmd_path(const char *command);
+char *find_cmd_path(char *command);
 void exe_cmd(const char *cmd_path, char *const argv[]);
 char **sj_get_input(char *input);
 /********my_getline function******/

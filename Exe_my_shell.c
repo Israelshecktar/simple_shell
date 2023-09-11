@@ -40,10 +40,10 @@ void Ex_prompt(const char *input)
 			}
 
 			free(cmd_path);
-			}
-				else
-			{
-				shecktar_write(input);
-				shecktar_write(": Error, command not found\n");
-			}
+		}
+		else
+		{
+			shecktar_write(input);
+			shecktar_write(": Error, command not found\n");
+		}
 }

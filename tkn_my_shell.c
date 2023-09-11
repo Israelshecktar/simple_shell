@@ -8,27 +8,12 @@ void tkn_prompt(char *input)
 {
 		pid_t child_pid = fork();
 
-		int argc = 0;
-		char *argv[300];
-		char *tkn;
-
-		tkn = strtok(input, " ");
-
-		while (tkn != NULL)
-		{
-			argv[argc] = tkn;
-			argc++;
-			tkn = strtok(NULL, " ");
-		}
-
-		argv[argc] = NULL;
+		char **argv = sj_get_input(input);
 
 		if (child_pid == -1)
 		{
 			perror("fork");
 			exit(EXIT_FAILURE);
-
-			free(argv);
 		}
 		else if (child_pid == 0)
 		{
@@ -45,4 +30,6 @@ void tkn_prompt(char *input)
 			/* parent process must wait */
 			wait(NULL);
 		}
+
+		free(argv);
 }

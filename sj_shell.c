@@ -18,10 +18,11 @@ int main(void)
 {
 		char input[400];
 		char *result = NULL;
+		char **command = NULL;
 
 		while (1)
 		{
-			shecktar_write("shecktar_shell$ ");
+			my_prompt();
 			result = shecktar_getline(input, sizeof(input), stdin);
 			if (result == NULL)
 				break;
@@ -38,7 +39,10 @@ int main(void)
 				continue;
 			}
 
-			Ex_prompt(input);
+			command = sj_get_input(input);
+			Ex_prompt(command[0]);
+
+			free(command);
 		}
 
 		shecktar_write("Goodbye my friend!\n");

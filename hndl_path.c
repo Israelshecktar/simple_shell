@@ -23,7 +23,7 @@ char *find_cmd_path(char *command)
 				return (command);
 			}
 		path_copy = strdup(path);
-		token = strtok(path_copy, ":");
+		token = shecktar_strtok(path_copy, ":");
 
 		while (token != NULL)
 		{
@@ -36,12 +36,11 @@ char *find_cmd_path(char *command)
 					cmd_path = strdup(cmd_local);
 					break;
 				}
-				token = strtok(NULL, ":");
+				token = shecktar_strtok(NULL, ":");
 		}
 
 		if (cmd_path == NULL && access(command, X_OK) == 0)
 		{
-			printf("%s\n", command);
 			cmd_path = strdup(command);
 		}
 			/* But if command is still not found */

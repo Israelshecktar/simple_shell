@@ -9,7 +9,7 @@ void hndl_exit(char **command)
 	if (command[1] != NULL)
 	{
 		char *endptr;
-		long status = strtol(command[1], &endptr, 10);
+		long status = sj_strtol(command[1], &endptr, 10);
 
 		if (*endptr != '\0')
 		{

@@ -22,7 +22,7 @@ char *find_cmd_path(char *command)
 		{
 			return (command);
 		}
-		path_copy = strdup(path);
+		path_copy = sj_strdup(path);
 		token = shecktar_strtok(path_copy, ":");
 
 		while (token != NULL)
@@ -33,7 +33,7 @@ char *find_cmd_path(char *command)
 				if (access(cmd_local, X_OK) == 0)
 				{
 					/* command is present */
-					cmd_path = strdup(cmd_local);
+					cmd_path = sj_strdup(cmd_local);
 					break;
 				}
 				token = shecktar_strtok(NULL, ":");
@@ -41,9 +41,9 @@ char *find_cmd_path(char *command)
 
 		if (cmd_path == NULL && access(command, X_OK) == 0)
 		{
-			cmd_path = strdup(command);
+			cmd_path = sj_strdup(command);
 		}
 			/* But if command is still not found */
-
+		free(path_copy);
 		return (cmd_path);
 }

@@ -31,5 +31,7 @@ void hndl_env(void);
 /**********Utils*********/
 int sj_snprintf(char *in_str, size_t n, const char *format, ...);
 void sj_fprintf(FILE* folder, const char* format, ...);
+int sj_strcmp(const char *in_str1, const char *in_str2);
+size_t shecktar_strcspn(const char *in_str1, const char *in_str2);
 
 #endif /* SHELL_H */

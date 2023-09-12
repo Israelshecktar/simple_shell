@@ -28,12 +28,12 @@ int main(void)
 				break;
 
 			/* we remove new line character */
-			input[strcspn(input, "\n")] = '\0';
+			input[shecktar_strcspn(input, "\n")] = '\0';
 
-			if (strcmp(input, "exit") == 0)
+			if (sj_strcmp(input, "exit") == 0)
 				break;
 
-			if (strcmp(input, "env") == 0)
+			if (sj_strcmp(input, "env") == 0)
 			{
 				hndl_env();
 				continue;

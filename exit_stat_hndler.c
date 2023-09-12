@@ -19,4 +19,5 @@ void hndl_exit(char **command)
 
 		exit((int)status);
 	}
+
 }

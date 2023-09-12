@@ -29,5 +29,6 @@ char *sj_strdup(const char *s)
 	{
 		memcpy(dup, s, len);
 	}
+
 	return (dup);
 }

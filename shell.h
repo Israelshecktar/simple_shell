@@ -35,4 +35,7 @@ int sj_strcmp(const char *in_str1, const char *in_str2);
 size_t shecktar_strcspn(const char *in_str1, const char *in_str2);
 char *shecktar_strtok(char *in_str, const char *delim);
 
+/*********Error handlers*********/
+void hndl_exit(char **command);
+
 #endif /* SHELL_H */

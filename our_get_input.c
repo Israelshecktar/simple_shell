@@ -28,15 +28,21 @@ char **sj_get_input(char *input)
 	delim = " ";
 	index = 0;
 
-	parsed = strtok(input, delim);
+	parsed = shecktar_strtok(input, delim);
 	while (parsed != NULL)
 	{
 		command[index] = parsed;
 		index++;
 
-	parsed = strtok(NULL, delim);
+	parsed = shecktar_strtok(NULL, delim);
 	}
 
 	command[index] = NULL;
+	/* if command is "exit" */
+	if (sj_strcmp(command[0], "exit") == 0)
+	{
+		hndl_exit(command);
+	}
+
 	return (command);
 }

@@ -19,9 +19,9 @@ char *find_cmd_path(char *command)
 			return (NULL);
 		}
 		if (stat(command, &buffer) == 0)
-			{
-				return (command);
-			}
+		{
+			return (command);
+		}
 		path_copy = strdup(path);
 		token = shecktar_strtok(path_copy, ":");
 

@@ -24,7 +24,7 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 	end = read(fileno(stream), line, READ_SIZE - 1);
 	if (end < 1)
 	{
-		free (line);
+		free(line);
 		line = NULL;
 		return (NULL);
 	}

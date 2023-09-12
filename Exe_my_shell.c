@@ -30,16 +30,16 @@ void Ex_prompt(char **input)
 				exit(EXIT_FAILURE);
 			}
 		}
-			else
+		else
 			{
 				wait(NULL);
 			}
 
+			free(cmd_path);
 		}
 		else
 		{
 			shecktar_write(input[0]);
 			shecktar_write(": Error, command not found\n");
-			free(cmd_path);
 		}
 }

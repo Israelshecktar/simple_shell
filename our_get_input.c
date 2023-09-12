@@ -37,7 +37,7 @@ char **sj_get_input(char *input)
 	parsed = shecktar_strtok(NULL, delim);
 	}
 
-	command[index] = NULL;
+	command[index] = parsed;
 	/* if command is "exit" */
 	if (sj_strcmp(command[0], "exit") == 0)
 	{

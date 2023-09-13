@@ -16,7 +16,6 @@ char **sj_get_input(char *input)
 		perror("Error: Null input string");
 		exit(EXIT_FAILURE);
 	}
-
 	command = malloc(8 * sizeof(char *));
 
 	if (command == NULL)
@@ -24,7 +23,6 @@ char **sj_get_input(char *input)
 		perror("Error: Memory allocation failed");
 		exit(EXIT_FAILURE);
 	}
-
 	delim = " ";
 	index = 0;
 
@@ -36,13 +34,15 @@ char **sj_get_input(char *input)
 
 	parsed = shecktar_strtok(NULL, delim);
 	}
-
+	if (hndl_builtins(command))
+	{
+		return (NULL);
+	}
 	command[index] = parsed;
 	/* if command is "exit" */
 	if (sj_strcmp(command[0], "exit") == 0)
 	{
 		hndl_exit(command);
 	}
-
 	return (command);
 }

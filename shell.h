@@ -20,6 +20,7 @@ void tkn_prompt(char *input);
 char *find_cmd_path(char *command);
 void exe_cmd(const char *cmd_path, char *const argv[]);
 char **sj_get_input(char *input);
+void sj_cd(char **args);
 /********my_getline function******/
 char *shecktar_getline(char *buffer, size_t size, FILE *stream);
 
@@ -27,7 +28,9 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream);
 /**********externs***********/
 extern char **environ;
 void hndl_env(void);
-
+void sj_setenv(char **args);
+void sj_unsetenv(char **args);
+int hndl_builtins(char **args);
 /**********Utils*********/
 int sj_snprintf(char *in_str, size_t n, const char *format, ...);
 void sj_fprintf(FILE* folder, const char* format, ...);

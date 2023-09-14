@@ -11,6 +11,7 @@ void Ex_prompt(char **input)
 		if (input[0] == NULL || strlen(input[0]) == 0)
 		{
 			shecktar_write("Command invalid or empty, please provide a command.\n");
+			free(cmd_path);
 			return;
 		}
 			if (cmd_path != NULL)
@@ -29,13 +30,13 @@ void Ex_prompt(char **input)
 				perror("Error: execve failed");
 				exit(EXIT_FAILURE);
 			}
+			free(cmd_path);
 		}
 		else
 			{
 				wait(NULL);
 			}
 
-			free(cmd_path);
 		}
 		else
 		{

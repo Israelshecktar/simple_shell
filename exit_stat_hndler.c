@@ -16,7 +16,6 @@ void hndl_exit(char **command)
 			shecktar_write("Invalid integer argument for exit status\n");
 			return;
 		}
-		free(command);
 		exit((int)status);
 	}
 

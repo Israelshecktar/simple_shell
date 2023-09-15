@@ -6,7 +6,7 @@
 */
 void display_prompt(void)
 {
-	shecktar_write("shecktar_shell$ ");
+	shecktar_write("$ ");
 }
 
 /**

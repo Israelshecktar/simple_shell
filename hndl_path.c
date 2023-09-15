@@ -37,6 +37,7 @@ char *find_cmd_path(char *command)
 				}
 				token = shecktar_strtok(NULL, ":");
 		}
+		free(path_copy);
 
 		if (cmd_path == NULL && access(command, X_OK) == 0)
 		{

@@ -32,3 +32,14 @@ char *sj_strdup(const char *s)
 
 	return (dup);
 }
+/**
+* free_memories - function frees memory
+* @cmd_path: function to free
+* @path_copy: function to free
+* Return: Nothing
+*/
+void free_memories(char *cmd_path, char *path_copy)
+{
+	free(cmd_path);
+	free(path_copy);
+}

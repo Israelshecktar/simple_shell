@@ -44,6 +44,5 @@ char **sj_get_input(char *input)
 	{
 		hndl_exit(command);
 	}
-	free(command);
 	return (command);
 }

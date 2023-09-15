@@ -30,6 +30,4 @@ void tkn_prompt(char *input)
 			/* parent process must wait */
 			wait(NULL);
 		}
-
-		free(argv);
 }

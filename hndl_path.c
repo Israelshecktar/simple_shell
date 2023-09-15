@@ -24,7 +24,6 @@ char *find_cmd_path(char *command)
 		}
 		path_copy = sj_strdup(path);
 		token = shecktar_strtok(path_copy, ":");
-
 		while (token != NULL)
 		{
 			char cmd_local[400];
@@ -45,6 +44,5 @@ char *find_cmd_path(char *command)
 			free(cmd_path);
 		}
 			/* But if command is still not found */
-		free(path_copy);
 		return (cmd_path);
 }

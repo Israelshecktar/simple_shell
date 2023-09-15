@@ -41,9 +41,8 @@ int main(void)
 
 			command = sj_get_input(input);
 			Ex_prompt(command);
-			free(command);
 		}
-
+		free(command);
 		shecktar_write("Goodbye my friend!\n");
 		return (0);
 }

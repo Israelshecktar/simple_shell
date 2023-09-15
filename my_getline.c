@@ -24,8 +24,8 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 	end = read(fileno(stream), line, READ_SIZE - 1);
 	if (end < 1)
 	{
-		free(line);
 		line = NULL;
+		free(line);
 		return (NULL);
 	}
 	line[end] = '\0';
@@ -35,8 +35,8 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 
 	if (k >= end)
 	{
-		free(line);
 		line = NULL;
+		free(line);
 	}
 	else
 	{

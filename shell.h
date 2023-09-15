@@ -20,6 +20,7 @@ void tkn_prompt(char *input);
 char *find_cmd_path(char *command);
 void exe_cmd(const char *cmd_path, char *const argv[]);
 char **sj_get_input(char *input);
+int hndl_cd(char **args);
 /********my_getline function******/
 char *shecktar_getline(char *buffer, size_t size, FILE *stream);
 

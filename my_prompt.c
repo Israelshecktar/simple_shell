@@ -32,5 +32,12 @@ int hndl_builtins(char **args)
 			sj_unsetenv(args);
 			return (1);
 		}
+
+		if (sj_strcmp(args[0], "cd") == 0)
+		{
+			hndl_cd(args);
+			return (1);
+		}
+
 		return (0);
 }

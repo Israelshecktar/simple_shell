@@ -9,12 +9,9 @@ void Ex_prompt(char **input)
 	char *cmd_path = find_cmd_path(input[0]);
 
 		if (input[0] == NULL || strlen(input[0]) == 0)
-		{
-			shecktar_write("Command invalid or empty, please provide a command.\n");
 			return;
-		}
-			if (cmd_path != NULL)
-			{
+		if (cmd_path != NULL)
+		{
 			pid_t child_pid = fork();
 		if (child_pid == -1)
 		{
@@ -41,5 +38,5 @@ void Ex_prompt(char **input)
 			shecktar_write(input[0]);
 			shecktar_write(": Error, command not found\n");
 		}
-
+		cmd_path = NULL;
 }

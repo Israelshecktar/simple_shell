@@ -1,5 +1,5 @@
 /**
- * sj_strtol - Converts a string to a long integer
+ * sj_strtol - Converts a string to long integer
  * @in_str: The input string to be converted
  * @endptr: A pointer to the character that stops the scan
  * @base: The base of the number system

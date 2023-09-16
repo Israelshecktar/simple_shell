@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* display_prompt - function displays my promt in termial
+* display_prompt - function displays a promt in termial
 * Return: void
 */
 void display_prompt(void)

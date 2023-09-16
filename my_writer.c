@@ -10,7 +10,7 @@ void shecktar_write(const char *input)
 }
 
 /**
-* sj_strcmp - function compares string
+* sj_strcmp - function compares two strings
 * @in_str1: The first str to compare
 * @in_str2: The second str to compare
 * Return: 0 if the string is equal, a negative value if in_str1 is

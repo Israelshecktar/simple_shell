@@ -1,7 +1,7 @@
 #include "shell.h"
 #define READ_SIZE 1024
 /**
-* shecktar_getline - function reads an entire line from the file stream
+* shecktar_getline - function reads the entire line from the file stream
 * @buffer: buffer in which to store read chars
 * @size: buffer size
 * @stream: file stream from which to read

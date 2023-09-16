@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
 * sj_get_input - function get inputs from user
-* @input: input from users
+* @input: input from user
 * Return: user input
 */
 char **sj_get_input(char *input)

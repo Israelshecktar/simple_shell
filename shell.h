@@ -1,6 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#define READ_SIZE 1024
 
 
 #include <stdio.h>

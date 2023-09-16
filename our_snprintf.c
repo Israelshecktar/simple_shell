@@ -22,8 +22,8 @@ int sj_snprintf(char *in_str, size_t n, const char *format, ...)
 
 /**
 * sj_fprintf - custom implemented fprintf
-* @format: format of the string
-* @folder: format of the folder
+* @format: format for string
+* @folder: format for folder
 * Return: null
 */
 void sj_fprintf(FILE *folder, const char *format, ...)

@@ -26,9 +26,30 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 ## Usage
 
-Our simple shell works like the sh shell, here are some usage examples.
+Our simple shell works like the sh shell and operates in both interactive and non-interactive modes. here are some usage examples.
 
+Interactive Mode
+
+In interactive mode, you simply run the program and it will display a prompt where you can enter your commands, similar to sh.
+```bash
+$ ./hsh
+$ mkdir my_new_directory
+$ ls -l
+$ cd my_new_directory
+$ env
+$ exit
+```
+Non-Interactive Mode
+
+Non-interactive mode is when you want to send commands to the program via a pipe, a file, or from a bash script, for example.
 Create a new directory:
+```bash
+$ echo "mkdir my_new_directory" | ./hsh
+$ echo "ls -l" | ./hsh
+$ echo "cd my_new_directory" | ./hsh
+$ echo "env" | ./hsh
+$ echo "exit" | ./hsh
+```
 
 ```bash
 $ mkdir my_new_directory
@@ -77,7 +98,7 @@ This project is licensed under the MIT License:
 ```
 MIT License
 
-Copyright (c) [Year] [EWEDAIRO ISRAEL AYOMIDE AND IWELUWO JUDE]
+Copyright (c) [2023] [EWEDAIRO ISRAEL AYOMIDE AND IWELUWO JUDE]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

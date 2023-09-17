@@ -6,30 +6,32 @@
 */
 int hndl_cd(char **args)
 {
-	if (args[1] == NULL)
+	char *dir_to_change_to;
+
+	if (args[1] != NULL)
 	{
-		char *home;
+		dir_to_change_to = args[1];
+	}
+	else
+	{
+		dir_to_change_to = getenv("HOME");
 
-		home = getenv("HOME");
-
-		if (home == NULL)
+		if (!dir_to_change_to)
 		{
 			shecktar_write("Cannot get home directory\n");
 			return (-1);
 		}
-		if (chdir(home) != 0)
-		{
-			perror("shecktar");
-			return (-1);
-		}
 	}
-	else
-		{
-			if (chdir(args[1]) != 0)
-			{
-				perror("shecktar");
-				return (-1);
-			}
-		}
-		return (1);
+
+	if (chdir(dir_to_change_to) == -1)
+	{
+		shecktar_write("shecktar: ");
+		shecktar_write(args[1]);
+		shecktar_write(": No such file or directory\n");
+		return (-1);
+	}
+
+	return (1);
 }
+
+

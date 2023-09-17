@@ -9,7 +9,7 @@ void hndl_env(void)
 
 	for (current = environ; *current; current++)
 	{
-		write(STDOUT_FILENO, *current, strlen(*current));
+		write(STDOUT_FILENO, *current, my_strlen(*current));
 		write(STDOUT_FILENO, "\n", 1);
 	}
 }
@@ -22,7 +22,7 @@ void hndl_env(void)
  */
 char *sj_strdup(const char *s)
 {
-	size_t len = strlen(s) + 1;
+	size_t len = my_strlen(s) + 1;
 	char *dup = malloc(len);
 
 	if (dup != NULL)

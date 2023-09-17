@@ -41,6 +41,8 @@ char *shecktar_strtok(char *in_str, const char *delim);
 long sj_strtol(const char *in_str, char **endptr, int base);
 char *sj_strdup(const char *s);
 void free_memories(char* cmd_path, char* path_copy);
+int my_strlen(const char *str);
+
 /*********Error handlers*********/
 void hndl_exit(char **command);
 

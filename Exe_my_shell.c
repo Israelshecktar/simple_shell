@@ -8,7 +8,7 @@ void Ex_prompt(char **input)
 {
 	char *cmd_path = find_cmd_path(input[0]);
 
-		if (input[0] == NULL || strlen(input[0]) == 0)
+		if (input[0] == NULL || my_strlen(input[0]) == 0)
 			return;
 		if (cmd_path != NULL)
 		{

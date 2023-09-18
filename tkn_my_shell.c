@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-* tkn_prompt - Function tokinizes arguments on CLI
+* tkn_prompt - Function that tokinizes arguments on CLI
 * @input: set of arguments as stdin
 * Return: void
 */

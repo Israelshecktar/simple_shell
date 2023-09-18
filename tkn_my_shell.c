@@ -20,7 +20,7 @@ void tkn_prompt(char *input)
 			/* while child process is running */
 			if (execve(argv[0], argv, environ) == -1)
 			{
-				write(STDOUT_FILENO, argv[0], strlen(argv[0]));
+				write(STDOUT_FILENO, argv[0], my_strlen(argv[0]));
 				shecktar_write(": No such file or directory\n");
 				exit(EXIT_FAILURE);
 			}

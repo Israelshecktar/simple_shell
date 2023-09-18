@@ -6,7 +6,7 @@
 */
 void shecktar_write(const char *input)
 {
-	write(STDOUT_FILENO, input, strlen(input));
+	write(STDOUT_FILENO, input, my_strlen(input));
 }
 
 /**
@@ -18,7 +18,12 @@ void shecktar_write(const char *input)
 */
 int sj_strcmp(const char *in_str1, const char *in_str2)
 {
-	while (*in_str1 && *in_str1 == *in_str2)
+	if (in_str1 == NULL || in_str2 == NULL)
+	{
+		return (in_str1 == in_str2 ? 0 : (in_str1 == NULL ? -1 : 1));
+	}
+
+	while (*in_str1 && (*in_str1 == *in_str2))
 	{
 		in_str1++;
 		in_str2++;

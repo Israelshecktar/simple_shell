@@ -1,0 +1,56 @@
+#include "shell.h"
+
+/**
+ * shecktar_getline - gets the next line of input from STDIN
+ * @info: parameter struct
+ * @ptr: address of pointer to buffer, preallocated or NULL
+ * @length: size of preallocated ptr buffer if not NULL
+ *
+ * Return: s
+ */
+
+int shecktar_getline(size_t *info, char **ptr, size_t *length)
+{
+    static char buf[READ_BUF_SIZE];
+    static size_t idx = 0, len = 0;
+    size_t newlinePosition;
+    ssize_t r = 0;
+    char *tempBuffer = NULL, *newBuffer = NULL, *newlineCharPtr;
+
+    tempBuffer = *ptr;
+
+    if (tempBuffer && length)
+        *length = *length;
+
+    if (idx == len)
+        idx = len = 0;
+
+    r = read_buf(info, buf, &len);
+    if (r == -1 || (r == 0 && len == 0))
+        return (-1);
+
+    newlineCharPtr = strchr(buf + idx, '\n');
+    newlinePosition = newlineCharPtr ? 1 + (unsigned int)(newlineCharPtr - buf) : len;
+    newBuffer = realloc(tempBuffer, *length, *length ? *length + newlinePosition : newlinePosition + 1);
+
+    if (!newBuffer) /* Memory Allocation Failure Case */ {
+        if (tempBuffer)
+            free(tempBuffer);
+
+        return (-1);
+    }
+
+    /* Concatenate / copy string */
+    if (*length)
+        strncat(newBuffer, buf + idx, newlinePosition - idx);
+    else
+        strncpy(newBuffer, buf + idx, newlinePosition - idx + 1);
+
+    *length += newlinePosition - idx;
+    idx = newlinePosition;
+    tempBuffer = newBuffer;
+
+    /* Assign newBuffer to *ptr and return length */
+    *ptr = tempBuffer;
+    return (*length);
+}

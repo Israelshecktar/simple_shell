@@ -21,7 +21,10 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 	if (!line)
 		line = malloc(sizeof(char) * READ_SIZE);
 	if (!line)
-		return (NULL);
+	{
+		perror("Error: Memory allocation failed for shecktar_getline");
+	exit(EXIT_FAILURE);
+	}
 	start = 0;
 	end = read(fileno(stream), line, READ_SIZE - 1);
 	if (end < 1)

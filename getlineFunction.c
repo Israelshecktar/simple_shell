@@ -9,10 +9,10 @@ char *customGetline() {
 
         if (c == '\n' || c == EOF) {
             if (len > 0) {
-                break; /* Stop reading when a newline or EOF is encountered*/
+                break;
             } else if (c == EOF) {
                 free(line);
-                return NULL; /* Return NULL if no input was read before EOF*/
+                return NULL;
             }
         }
 

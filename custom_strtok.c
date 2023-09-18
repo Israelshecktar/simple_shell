@@ -10,8 +10,8 @@ char *customStrtok(char *str, const char *delim) {
     token = strpbrk(start, delim);
 
     if (token != NULL) {
-        *token = '\0'; /*Replace the delimiter with null terminator*/
-        token++; /* Move past the delimiter*/
+        *token = '\0';
+        token++;
     }
 
     return start;

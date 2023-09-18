@@ -17,7 +17,7 @@ char *customGetline() {
         }
 
         if (len + 1 >= capacity) {
-            capacity += 10; /*Increase capacity in chunks*/
+            capacity += 10;
             char *newLine = realloc(line, capacity);
             if (newLine == NULL) {
                 perror("Error (realloc)");
@@ -30,7 +30,6 @@ char *customGetline() {
         line[len++] = c;
     }
 
-    /* Null-terminate the string*/
     if (len + 1 >= capacity) {
         capacity += 1;
         char *newLine = realloc(line, capacity);

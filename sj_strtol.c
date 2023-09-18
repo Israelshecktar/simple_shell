@@ -1,3 +1,4 @@
+#include "shell.h"
 /**
  * sj_strtol - Converts a string to a long integer
  * @in_str: The input string to be converted
@@ -9,6 +10,11 @@ long sj_strtol(const char *in_str, char **endptr, int base)
 {
 	long result = 0;
 	int sign = 1;
+
+	if (in_str == NULL)
+	{
+		return (0);
+	}
 
 	if (*in_str == '-')
 	{

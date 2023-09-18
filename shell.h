@@ -12,7 +12,8 @@
 #include <sys/wait.h>
 #include <stdarg.h>
 #include <sys/stat.h>
-
+#include <stddef.h>
+#include <locale.h>
 void shecktar_write(const char *input);
 void my_prompt(void);
 void Ex_prompt(char **input);
@@ -24,8 +25,9 @@ char **sj_get_input(char *input);
 int hndl_cd(char **args);
 /********my_getline function******/
 char *shecktar_getline(char *buffer, size_t size, FILE *stream);
-
-
+/*int shecktar_getline(size_t *info, char **ptr, size_t *length);*/
+/*char *shecktar_getline(char *input, size_t buffer_size, FILE *folder);
+*/
 /**********externs***********/
 extern char **environ;
 void hndl_env(void);
@@ -39,7 +41,7 @@ int sj_strcmp(const char *in_str1, const char *in_str2);
 size_t shecktar_strcspn(const char *in_str1, const char *in_str2);
 char *shecktar_strtok(char *in_str, const char *delim);
 long sj_strtol(const char *in_str, char **endptr, int base);
-char *sj_strdup(const char *s);
+char *sj_strdup(const char *str);
 void free_memories(char* cmd_path, char* path_copy);
 int my_strlen(const char *str);
 

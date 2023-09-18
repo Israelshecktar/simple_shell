@@ -28,7 +28,7 @@ char *sj_strdup(const char *str)
 	if (str == NULL)
 		return (NULL);
 
-	while(str[length])
+	while (str[length])
 		length++;
 
 	dup_str = malloc((length + 1) * sizeof(char));
@@ -42,9 +42,9 @@ char *sj_strdup(const char *str)
 	for (length = 0; str[length]; length++)
 			dup_str[length] = str[length];
 
-		dup_str[length] = '\0';
+	dup_str[length] = '\0';
 
-		return (dup_str);
+	return (dup_str);
 }
 
 /**

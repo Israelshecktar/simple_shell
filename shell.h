@@ -14,6 +14,8 @@
 #include <sys/stat.h>
 #include <stddef.h>
 #include <locale.h>
+#include <errno.h>
+
 void shecktar_write(const char *input);
 void my_prompt(void);
 void Ex_prompt(char **input);

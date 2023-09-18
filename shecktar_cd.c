@@ -27,7 +27,9 @@ int hndl_cd(char **args)
 	{
 		shecktar_write("shecktar: ");
 		shecktar_write(args[1]);
+		shecktar_write(": ");
 		shecktar_write(": No such file or directory\n");
+		shecktar_write("\n");
 		return (-1);
 	}
 

@@ -6,7 +6,7 @@ The project is a simple UNIX command interpreter written as part of the low-leve
 * Commands written with their absolute paths
 * Commands execution with arguments
 
-This project was done by EWEDAIRO ISRAEL AYOMIDE AND IWELEWO JUDE, under the supervision of JULIEN BARBIER.
+This project was done by EWEDAIRO ISRAEL AYOMIDE AND IWELUMO JUDE, under the supervision of JULIEN BARBIER.
 
 ## Requirements
 

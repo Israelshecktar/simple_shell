@@ -6,7 +6,7 @@ The project is a simple UNIX command interpreter written as part of the low-leve
 * Commands written with their absolute paths
 * Commands execution with arguments
 
-This project was done by EWEDAIRO ISRAEL AYOMIDE AND IWELUMO JUDE, under the supervision of JULIEN BARBIER.
+This project was done by EWEDAIRO ISRAEL AYOMIDE and IWELUMO JUDE, under the supervision of JULIEN BARBIER at Alx.
 
 ## Requirements
 
@@ -18,7 +18,7 @@ This project was done by EWEDAIRO ISRAEL AYOMIDE AND IWELUMO JUDE, under the sup
 
 ## How to Compile
 
-The code can easily be compiled with gcc in your terminal by GNU Emacs.
+The code can easily be compiled with gcc in your terminal by GNU Vim.
 
 ```bash
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
@@ -28,7 +28,7 @@ $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 Our simple shell works like the sh shell and operates in both interactive and non-interactive modes. here are some usage examples.
 
-Interactive Mode
+**Interactive Mode**
 
 In interactive mode, you simply run the program and it will display a prompt where you can enter your commands, similar to sh.
 ```bash
@@ -39,7 +39,7 @@ $ cd my_new_directory
 $ env
 $ exit
 ```
-Non-Interactive Mode
+**Non-Interactive Mode**
 
 Non-interactive mode is when you want to send commands to the program via a pipe, a file, or from a bash script, for example.
 Create a new directory:
@@ -89,7 +89,6 @@ This project is a work in progress and while it will probably fulfill basic need
 4. Push to your feature branch
 5. Create a new Pull Request
 
-You're absolutely right. A license is important for defining the terms under which others can use your software. Here's a suggestion for the MIT license, which is a short and straightforward license that allows others to freely use, modify, and distribute your code.
 
 ## License
 

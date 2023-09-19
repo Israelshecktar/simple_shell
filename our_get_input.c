@@ -23,7 +23,7 @@ char **sj_get_input(char *input)
 		perror("Error: Memory allocation failed");
 		exit(EXIT_FAILURE);
 	}
-	delim = " ";
+	delim = " ;";
 	index = 0;
 
 	parsed = shecktar_strtok(input, delim);

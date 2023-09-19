@@ -10,27 +10,39 @@
 char *shecktar_strtok(char *in_str, const char *delim)
 {
 	static char *last_tok;
-	char *delimMatch;
+	char *return_ptr;
 
 	/* Initializes start of str */
-	if (in_str == NULL)
+	if (in_str != NULL)
 	{
-		in_str = last_tok;
-		if (in_str == NULL)
-			return (NULL);
+		last_tok = in_str;
 	}
 
-	/* Now we find the first token in string */
-	delimMatch = strpbrk(in_str, delim);
-	if (delimMatch == NULL)
+	if (last_tok == NULL)
+		return ((NULL));
+
+	while (*last_tok != '\0' && sj_strchr(delim, *last_tok) != NULL)
+	{
+		last_tok++;
+	}
+	if (*last_tok == '\0')
 	{
 		last_tok = NULL;
-	}
-	else
-	{
-		*delimMatch = '\0';
-		last_tok = delimMatch + 1;
+		return ((NULL));
 	}
 
-	return (in_str);
+		(return_ptr = last_tok);
+
+	while (*last_tok != '\0' && sj_strchr(delim, *last_tok) == NULL)
+	{
+		last_tok++;
+	}
+
+	if (*last_tok != '0')
+	{
+		*last_tok = '\0';
+		last_tok++;
+	}
+
+	return ((return_ptr));
 }

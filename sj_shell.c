@@ -18,7 +18,7 @@ int main(void)
 {
 		char input[400];
 		char *result = NULL;
-		char **command = NULL;
+		char **commands;
 
 		while (1)
 		{
@@ -39,10 +39,12 @@ int main(void)
 				continue;
 			}
 
-			command = sj_get_input(input);
-			Ex_prompt(command);
+			commands = split(input, ";");
+
+			hndl_mul_cmd(commands);
+				free(commands);
 		}
-		free(command);
+
 		shecktar_write("Exiting shell...\n");
 		return (0);
 }

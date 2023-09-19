@@ -36,7 +36,6 @@ void Ex_prompt(char **input)
 			{
 				wait(NULL);
 			}
-			free(cmd_path);
 
 		}
 		else
@@ -45,4 +44,5 @@ void Ex_prompt(char **input)
 			shecktar_write(": Error, command not found\n");
 		}
 		cmd_path = NULL;
+		free(cmd_path);
 }

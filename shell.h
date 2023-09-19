@@ -44,8 +44,11 @@ size_t shecktar_strcspn(const char *in_str1, const char *in_str2);
 char *shecktar_strtok(char *in_str, const char *delim);
 long sj_strtol(const char *in_str, char **endptr, int base);
 char *sj_strdup(const char *str);
-void free_memories(char* cmd_path, char* path_copy);
+char *sj_strchr(const char *str, int c);
+/*void free_memories(char* cmd_path, char* path_copy);*/
 int my_strlen(const char *str);
+void hndl_mul_cmd(char **commands);
+char **split(char *input, const char *delim);
 
 /*********Error handlers*********/
 void hndl_exit(char **command);

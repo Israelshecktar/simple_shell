@@ -40,21 +40,9 @@ char *sj_strdup(const char *str)
 	}
 
 	for (length = 0; str[length]; length++)
-			dup_str[length] = str[length];
+		dup_str[length] = str[length];
 
 	dup_str[length] = '\0';
 
 	return (dup_str);
-}
-
-/**
-* free_memories - function frees memory
-* @cmd_path: function to free
-* @path_copy: function to free
-* Return: Nothing
-*/
-void free_memories(char *cmd_path, char *path_copy)
-{
-	free(cmd_path);
-	free(path_copy);
 }

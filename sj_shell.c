@@ -43,6 +43,6 @@ int main(void)
 			Ex_prompt(command);
 		}
 		free(command);
-		shecktar_write("Goodbye my friend!\n");
+		shecktar_write("Exiting shell...\n");
 		return (0);
 }

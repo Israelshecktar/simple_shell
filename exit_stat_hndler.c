@@ -38,5 +38,5 @@ int my_strlen(const char *str)
 		counter++;
 	}
 
-		return (counter);
+	return (counter);
 }

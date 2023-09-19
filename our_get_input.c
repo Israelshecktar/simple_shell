@@ -36,6 +36,7 @@ char **sj_get_input(char *input)
 	}
 	if (hndl_builtins(command))
 	{
+		free(command);
 		return (NULL);
 	}
 	command[index] = parsed;

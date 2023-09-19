@@ -42,7 +42,6 @@ char *find_cmd_path(char *command)
 		if (cmd_path == NULL && access(command, X_OK) == 0)
 		{
 			cmd_path = sj_strdup(command);
-			free(cmd_path);
 		}
 			/* But if command is still not found */
 		return (cmd_path);

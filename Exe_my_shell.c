@@ -9,7 +9,10 @@ void Ex_prompt(char **input)
 	char *cmd_path = find_cmd_path(input[0]);
 
 		if (input[0] == NULL || my_strlen(input[0]) == 0)
+		{
+			free(cmd_path);
 			return;
+		}
 		if (sj_strcmp(input[0], "cd") == 0)
 		{
 			hndl_cd(input);
@@ -43,6 +46,5 @@ void Ex_prompt(char **input)
 			shecktar_write(input[0]);
 			shecktar_write(": Error, command not found\n");
 		}
-		cmd_path = NULL;
 		free(cmd_path);
 }

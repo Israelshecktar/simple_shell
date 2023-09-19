@@ -38,7 +38,7 @@ char *sj_strchr(const char *str, int c)
 	while (*str != '\0')
 	{
 		if (*str == c)
-			return (char *)str;
+			return ((char *)str);
 		str++;
 	}
 

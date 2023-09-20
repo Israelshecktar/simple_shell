@@ -1,6 +1,8 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#define READ_SIZE 1024
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,8 +40,7 @@ int my_strlen(const char *str);
 void hndl_mul_cmd(char **commands);
 char **split(char *input, const char *delim);
 void tokenize_args(char *commands);
-=======
-#define READ_SIZE 1024
+
 int sj_strlen(char *str);
 int sj_putchar(char c);
 void sj_puts(char *str);

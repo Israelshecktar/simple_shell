@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * print_prompt - print shell prompt
  *
@@ -6,9 +6,9 @@
  */
 void print_prompt(void)
 {
-	char *shellPrompt = "SJ_shell~$";
+	char *shellPrompt = "SJ_shell~$ ";
 
-	sj_puts(shellPrompt);
+	write(1, shellPrompt, sj_strlen(shellPrompt));
 }
 /**
  * sj_custom_getline - Read a line from the file stream

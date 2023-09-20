@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * sj_strlen - finds length of a string
  * @s: string
@@ -39,9 +39,9 @@ void sj_puts(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		_putchar(str[i]);
+		sj_putchar(str[i]);
 	}
-	_putchar('\n');
+	sj_putchar('\n');
 }
 /**
  * sj_strcmp - compare string values

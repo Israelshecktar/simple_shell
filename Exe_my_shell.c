@@ -45,6 +45,5 @@ void Ex_prompt(char **input)
 			shecktar_write(input[0]);
 			shecktar_write(": No such file or directory\n");
 		}
-		free(cmd_path);
 }
 

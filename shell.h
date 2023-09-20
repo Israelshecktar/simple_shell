@@ -49,7 +49,7 @@ int sj_strcmp(char *s1, char *s2);
 /*Line functions*/
 void print_prompt(void);
 char *Sj_custom_getline(char *buffer, size_t size, FILE *stream);
-/*under review*/
+/*under_review*/
 void my_prompt(void);
 void shecktar_write(const char *input);
 

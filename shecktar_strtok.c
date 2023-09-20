@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-* sj_strtok - custom version of the strtok()
+* sj_strtok - custom version of the strtok
 * @in_str: provided string to be tokenized
 * @delim: the delimeter to which tokenization will occur
 *

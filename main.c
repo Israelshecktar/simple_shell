@@ -17,7 +17,7 @@ void my_prompt(void)
 */
 void shecktar_write(const char *input)
 {
-	write(STDOUT_FILENO, input, strlen(input));
+	write(STDOUT_FILENO, input, my_strlen(input));
 }
 
 /**
@@ -29,7 +29,7 @@ void shecktar_write(const char *input)
 int main(int argc, char **argv)
 {
 	ssize_t read_chars;
-	char *ln_ptr;
+	char *ln_ptr = NULL;
 	char *my_prompt = ("$ ");
 	size_t z = 0;
 	(void)argc;
@@ -43,11 +43,16 @@ int main(int argc, char **argv)
 		if (read_chars == -1)
 		{
 			shecktar_write("Goodbye my friend!..\n");
+			free(ln_ptr);
+			ln_ptr = NULL;
 			return (-1);
 		}
 		printf("%s\n", ln_ptr);
 
 		free(ln_ptr);
+		ln_ptr = NULL;
+
+		z = 0;
 	}
 
 	return (0);

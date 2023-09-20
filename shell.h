@@ -29,7 +29,7 @@ int hndl_builtins(char **args);
 /**********Utils*********/
 int sj_snprintf(char *in_str, size_t n, const char *format, ...);
 void sj_fprintf(FILE *folder, const char *format, ...);
-int sj_strcmp(const char *in_str1, const char *in_str2);
+/*int sj_strcmp(const char *in_str1, const char *in_str2);*/
 size_t shecktar_strcspn(const char *in_str1, const char *in_str2);
 char *sj_strtok(char *in_str, const char *delim);
 long sj_strtol(const char *in_str, char **endptr, int base);
@@ -44,7 +44,7 @@ void tokenize_args(char *commands);
 int sj_strlen(char *str);
 int sj_putchar(char c);
 void sj_puts(char *str);
-int sj_strcmp(char *s1, char *s2);
+/* int sj_strcmp(char *s1, char *s2);*/
 
 
 /*Line functions*/

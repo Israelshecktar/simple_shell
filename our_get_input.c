@@ -26,13 +26,13 @@ char **sj_get_input(char *input)
 	delim = " ;";
 	index = 0;
 
-	parsed = shecktar_strtok(input, delim);
+	parsed = sj_strtok(input, delim);
 	while (parsed != NULL)
 	{
 		command[index] = parsed;
 		index++;
 
-	parsed = shecktar_strtok(NULL, delim);
+	parsed = sj_strtok(NULL, delim);
 	}
 	if (hndl_builtins(command))
 	{

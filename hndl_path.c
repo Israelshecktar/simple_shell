@@ -23,7 +23,7 @@ char *find_cmd_path(char *command)
 			return (command);
 		}
 		path_copy = sj_strdup(path);
-		token = shecktar_strtok(path_copy, ":");
+		token = sj_strtok(path_copy, ":");
 		while (token != NULL)
 		{
 			char cmd_local[400];
@@ -35,7 +35,7 @@ char *find_cmd_path(char *command)
 					cmd_path = sj_strdup(cmd_local);
 					break;
 				}
-				token = shecktar_strtok(NULL, ":");
+				token = sj_strtok(NULL, ":");
 		}
 		free(path_copy);
 

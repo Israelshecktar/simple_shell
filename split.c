@@ -13,11 +13,11 @@ char **split(char *input, const char *delim)
 	char *token;
 	int index = 0;
 
-	token = shecktar_strtok(input, delim);
+	token = sj_strtok(input, delim);
 	while (token != NULL)
 	{
 		result[index++] = token;
-		token = shecktar_strtok(NULL, delim);
+		token = sj_strtok(NULL, delim);
 	}
 		result[index] = NULL;
 

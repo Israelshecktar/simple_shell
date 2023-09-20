@@ -1,48 +1,40 @@
 #include "shell.h"
 /**
-* shecktar_strtok - custom version of the strtok()
+* sj_strtok - custom version of the strtok()
 * @in_str: provided string to be tokenized
 * @delim: the delimeter to which tokenization will occur
 *
 * Return: a ptr to the first token in the str provided
 */
 
-char *shecktar_strtok(char *in_str, const char *delim)
+char *sj_strtok(char *in_str, const char *delim)
 {
-	static char *last_tok;
-	char *return_ptr;
+	static char *token_start;
+	static char *next_token;
 
 	/* Initializes start of str */
 	if (in_str != NULL)
 	{
-		last_tok = in_str;
+		next_token = in_str;
 	}
 
-	if (last_tok == NULL)
-		return ((NULL));
+	if (next_token == NULL)
+		return (NULL);
 
-	while (*last_tok != '\0' && sj_strchr(delim, *last_tok) != NULL)
+	token_start = next_token;
+
+	while (*next_token != '\0')
 	{
-		last_tok++;
-	}
-	if (*last_tok == '\0')
-	{
-		last_tok = NULL;
-		return ((NULL));
-	}
-
-		(return_ptr = last_tok);
-
-	while (*last_tok != '\0' && sj_strchr(delim, *last_tok) == NULL)
-	{
-		last_tok++;
+		if (sj_strchr(delim, *next_token) != NULL)
+		{
+			*next_token = '\0';
+			next_token += 1;
+			return (token_start);
+		}
+		next_token += 1;
 	}
 
-	if (*last_tok != '0')
-	{
-		*last_tok = '\0';
-		last_tok++;
-	}
-
-	return ((return_ptr));
+	next_token = NULL;
+	return (token_start);
 }
+

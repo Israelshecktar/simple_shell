@@ -38,7 +38,7 @@ int sj_snprintf(char *in_str, size_t n, const char *format, ...);
 void sj_fprintf(FILE *folder, const char *format, ...);
 int sj_strcmp(const char *in_str1, const char *in_str2);
 size_t shecktar_strcspn(const char *in_str1, const char *in_str2);
-char *shecktar_strtok(char *in_str, const char *delim);
+char *sj_strtok(char *in_str, const char *delim);
 long sj_strtol(const char *in_str, char **endptr, int base);
 char *sj_strdup(const char *str);
 char *sj_strchr(const char *str, int c);

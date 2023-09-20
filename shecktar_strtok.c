@@ -9,32 +9,40 @@
 
 char *sj_strtok(char *in_str, const char *delim)
 {
-	static char *token_start;
-	static char *next_token;
+	static char *last_tok;
+	static char *return_ptr;
 
 	/* Initializes start of str */
 	if (in_str != NULL)
 	{
-		next_token = in_str;
+		last_tok = in_str;
 	}
 
-	if (next_token == NULL)
-		return (NULL);
+	if (last_tok == NULL)
+		return ((NULL));
 
-	token_start = next_token;
-
-	while (*next_token != '\0')
+	while (*last_tok != '\0' && sj_strchr(delim, *last_tok) != NULL)
 	{
-		if (sj_strchr(delim, *next_token) != NULL)
-		{
-			*next_token = '\0';
-			next_token += 1;
-			return (token_start);
-		}
-		next_token += 1;
+		last_tok++;
+	}
+	if (*last_tok == '\0')
+	{
+		last_tok = NULL;
+		return ((NULL));
 	}
 
-	next_token = NULL;
-	return (token_start);
-}
+		(return_ptr = last_tok);
 
+	while (*last_tok != '\0' && sj_strchr(delim, *last_tok) == NULL)
+	{
+		last_tok++;
+	}
+
+	if (*last_tok != '0')
+	{
+		*last_tok = '\0';
+		last_tok++;
+	}
+
+	return ((return_ptr));
+}

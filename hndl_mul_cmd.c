@@ -17,3 +17,4 @@ void hndl_mul_cmd(char **commands)
 		i++;
 	}
 }
+

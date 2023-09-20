@@ -61,3 +61,4 @@ size_t shecktar_strcspn(const char *in_str1, const char *in_str2)
 	}
 	return (str_len);
 }
+

@@ -34,3 +34,4 @@ void sj_fprintf(FILE *folder, const char *format, ...)
 	vfprintf(folder, format, args);
 	va_end(args);
 }
+

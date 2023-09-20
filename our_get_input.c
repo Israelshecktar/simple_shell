@@ -47,3 +47,4 @@ char **sj_get_input(char *input)
 	}
 	return (command);
 }
+

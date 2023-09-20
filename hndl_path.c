@@ -46,3 +46,4 @@ char *find_cmd_path(char *command)
 			/* But if command is still not found */
 		return (cmd_path);
 }
+

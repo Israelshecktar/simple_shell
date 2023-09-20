@@ -47,3 +47,4 @@ void Ex_prompt(char **input)
 		}
 		free(cmd_path);
 }
+

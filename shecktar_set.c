@@ -42,3 +42,4 @@ void sj_unsetenv(char **args)
 			sj_fprintf(stderr, "Error: unsetenv failed. \n");
 		}
 }
+

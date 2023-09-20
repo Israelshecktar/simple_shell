@@ -48,3 +48,4 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 	}
 	return (buffer);
 }
+

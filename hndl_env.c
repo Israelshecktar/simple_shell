@@ -46,3 +46,4 @@ char *sj_strdup(const char *str)
 
 	return (dup_str);
 }
+

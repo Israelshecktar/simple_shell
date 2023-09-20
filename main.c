@@ -44,7 +44,5 @@ int main(void)
 			hndl_mul_cmd(commands);
 				free(commands);
 		}
-
-		shecktar_write("Exiting shell...\n");
 		return (0);
 }

@@ -9,4 +9,6 @@
 
 void my_prompt(void);
 void shecktar_write(const char *input);
+int main(int argc, char **argv);
+
 #endif /* SHELL_H */

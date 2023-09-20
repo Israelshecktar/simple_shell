@@ -46,6 +46,7 @@ char *sj_strchr(const char *str, int c);
 int my_strlen(const char *str);
 void hndl_mul_cmd(char **commands);
 char **split(char *input, const char *delim);
+void tokenize_args(char *commands);
 
 /*********Error handlers*********/
 void hndl_exit(char **command);

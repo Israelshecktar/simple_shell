@@ -42,7 +42,7 @@ int main(void)
 			commands = split(input, ";");
 
 			hndl_mul_cmd(commands);
-				free(commands);
+			/*	free(commands);*/
 		}
 
 		shecktar_write("Exiting shell...\n");

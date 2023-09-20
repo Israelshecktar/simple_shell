@@ -1,26 +1,5 @@
 #include "shell.h"
 /**
-* my_prompt - function displays my prompt to terminal
-* Return: void
-*/
-
-void my_prompt(void)
-	{
-		shecktar_write("$ ");
-	}
-
-#include "shell.h"
-/**
-* shecktar_write - Function writes to the std output
-* @input: set of instructions recieved
-* Return: void
-*/
-void shecktar_write(const char *input)
-{
-	write(STDOUT_FILENO, input, my_strlen(input));
-}
-
-/**
 * main - Entry point
 * @argc: arguments passed
 * @argv: argument line
@@ -29,31 +8,22 @@ void shecktar_write(const char *input)
 int main(int argc, char **argv)
 {
 	ssize_t read_chars;
-	char *ln_ptr = NULL;
-	char *my_prompt = ("$ ");
+	char *ln_ptr;
 	size_t z = 0;
-	(void)argc;
-	(void)argv;
+
+	(void)argc; (void)argv;
 
 	while (1)
 	{
-		printf("%s", my_prompt);
+                print_prompt();
 		read_chars = getline(&ln_ptr, &z, stdin);
-
 		if (read_chars == -1)
 		{
-			shecktar_write("Goodbye my friend!..\n");
-			free(ln_ptr);
-			ln_ptr = NULL;
+			sj_puts("exiting shell...");
 			return (-1);
 		}
-		printf("%s\n", ln_ptr);
-
+                sj_puts(ln_ptr);
 		free(ln_ptr);
-		ln_ptr = NULL;
-
-		z = 0;
 	}
-
 	return (0);
 }

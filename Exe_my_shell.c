@@ -43,7 +43,7 @@ void Ex_prompt(char **input)
 		else
 		{
 			shecktar_write(input[0]);
-			shecktar_write(": Error, command not found\n");
+			shecktar_write(": No such file or directory\n");
 		}
 		free(cmd_path);
 }

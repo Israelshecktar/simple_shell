@@ -14,15 +14,7 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 	size_t e, k;
 
 	if (!buffer || size <= 0 || !stream)
-	{
-		if (line)
-		{
-			free(line);
-			line = NULL;
-		}
 		return (NULL);
-	}
-
 	if (line)
 		free(line);
 	if (!line)
@@ -54,6 +46,5 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 	{
 		start = k;
 	}
-
 	return (buffer);
 }

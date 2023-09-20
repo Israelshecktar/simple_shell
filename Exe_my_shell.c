@@ -39,7 +39,6 @@ void Ex_prompt(char **input)
 			{
 				wait(NULL);
 			}
-
 		}
 		else
 		{

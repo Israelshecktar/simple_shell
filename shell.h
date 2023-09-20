@@ -1,21 +1,12 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#define READ_SIZE 1024
-
-
 #include <stdio.h>
-#include <unistd.h>
-#include <string.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <stdarg.h>
-#include <sys/stat.h>
-#include <stddef.h>
-#include <locale.h>
-#include <errno.h>
+#include <string.h>
+#include <unistd.h>
 
+<<<<<<< HEAD
 void shecktar_write(const char *input);
 void my_prompt(void);
 void Ex_prompt(char **input);
@@ -47,8 +38,19 @@ int my_strlen(const char *str);
 void hndl_mul_cmd(char **commands);
 char **split(char *input, const char *delim);
 void tokenize_args(char *commands);
+=======
+#define READ_SIZE 1024
+int sj_strlen(char *str);
+int sj_putchar(char c);
+void sj_puts(char *str);
+int sj_strcmp(char *s1, char *s2);
+>>>>>>> 946a073c60de1ca1db63a5377534d413d6e8fcee
 
-/*********Error handlers*********/
-void hndl_exit(char **command);
+/*Line functions*/
+void print_prompt(void);
+char *Sj_custom_getline(char *buffer, size_t size, FILE *stream);
+/*under review*/
+void my_prompt(void);
+void shecktar_write(const char *input);
 
 #endif /* SHELL_H */

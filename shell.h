@@ -6,7 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 
-<<<<<<< HEAD
+
 void shecktar_write(const char *input);
 void my_prompt(void);
 void Ex_prompt(char **input);
@@ -44,7 +44,7 @@ int sj_strlen(char *str);
 int sj_putchar(char c);
 void sj_puts(char *str);
 int sj_strcmp(char *s1, char *s2);
->>>>>>> 946a073c60de1ca1db63a5377534d413d6e8fcee
+
 
 /*Line functions*/
 void print_prompt(void);
@@ -52,5 +52,8 @@ char *Sj_custom_getline(char *buffer, size_t size, FILE *stream);
 /*under review*/
 void my_prompt(void);
 void shecktar_write(const char *input);
+
+int main(int argc, char **argv);
+
 
 #endif /* SHELL_H */

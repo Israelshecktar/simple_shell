@@ -22,17 +22,32 @@ void shecktar_write(const char *input)
 
 /**
 * main - Entry point
+* @argc: arguments passed
+* @argv: argument line
 * Return: 0 success
 */
-int main(void)
+int main(int argc, char **argv)
 {
-	char command[100];
+	ssize_t read_chars;
+	char *ln_ptr;
+	char *my_prompt = ("$ ");
+	size_t z = 0;
+	(void)argc;
+	(void)argv;
 
 	while (1)
 	{
-		my_prompt();
-		fgets(command, sizeof(command), stdin);
-		system(command);
+		printf("%s", my_prompt);
+		read_chars = getline(&ln_ptr, &z, stdin);
+
+		if (read_chars == -1)
+		{
+			shecktar_write("Goodbye my friend!..\n");
+			return (-1);
+		}
+		printf("%s\n", ln_ptr);
+
+		free(ln_ptr);
 	}
 
 	return (0);

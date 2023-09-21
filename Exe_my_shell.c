@@ -7,7 +7,6 @@
 void Ex_prompt(char **input)
 {
 	char *cmd_path = find_cmd_path(input[0]);
-	int exit_status = 0;
 
 		if (input[0] == NULL || my_strlen(input[0]) == 0)
 		{
@@ -29,7 +28,6 @@ void Ex_prompt(char **input)
 		}
 		else if (child_pid == 0)
 		{
-
 			if (execve(cmd_path, input, environ) == -1)
 			{
 				perror("Error: execve failed");
@@ -38,19 +36,13 @@ void Ex_prompt(char **input)
 		}
 		else
 			{
-				int	status;
-				wait(&status);
-				if (WIFEXITED(status))
-					{
-						exit_status = WEXITSTATUS(status);
-					}
+				wait(NULL);
+
 			}
 		}
 		else
 		{
 			shecktar_write(input[0]);
 			shecktar_write(": No such file or directory\n");
-			exit_status = 1;
 		}
-		exit(exit_status);
 }

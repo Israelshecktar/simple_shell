@@ -1,5 +1,6 @@
 #include "shell.h"
 #define READ_SIZE 1024
+
 /**
 * shecktar_getline - function reads the entire line from the file stream
 * @buffer: buffer in which to store read chars
@@ -9,43 +10,24 @@
 */
 char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 {
-	static char *line;
-	static size_t start, end;
-	size_t e, k;
+	size_t i = 0;
+	int ch;
 
 	if (!buffer || size <= 0 || !stream)
 		return (NULL);
-	if (line)
-		free(line);
-	if (!line)
-		line = malloc(sizeof(char) * READ_SIZE);
-	if (!line)
-	{
-		perror("Error: Memory allocation failed for shecktar_getline");
-	exit(EXIT_FAILURE);
-	}
-	start = 0;
-	end = read(fileno(stream), line, READ_SIZE - 1);
-	if (end < 1)
-	{
-		free(line);
-		line = NULL;
-		return (NULL);
-	}
-	line[end] = '\0';
-	for (e = 0, k = start; e < size - 1 && k < end; e++, k++)
-		buffer[e] = line[k];
-	buffer[e] = '\0';
 
-	if (k >= end)
+	while ((ch = fgetc(stream)) != EOF && i < size - 1)
 	{
-		free(line);
-		line = NULL;
+		buffer[i++] = ch;
+		if (ch == '\n')
+			break;
 	}
-	else
-	{
-		start = k;
-	}
+
+	if (i == 0 && ch == EOF)
+		return (NULL);
+
+	buffer[i] = '\0';
+
 	return (buffer);
 }
 

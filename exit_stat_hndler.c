@@ -14,14 +14,10 @@ void hndl_exit(char **command)
 		if (*endptr != '\0')
 		{
 			shecktar_write("Invalid integer argument for exit status\n");
-			exit(EXITT_FAILURE);
+			return;
 		}
 		exit((int)status);
 
-	}
-	else
-	{
-		exit(EXIT_SUCCESS);
 	}
 
 }

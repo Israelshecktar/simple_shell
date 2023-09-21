@@ -6,7 +6,8 @@
 
 void my_prompt(void)
 	{
-		shecktar_write("$ ");
+		if (isatty(STDIN_FILENO))
+			shecktar_write("$ ");
 	}
 
 /**

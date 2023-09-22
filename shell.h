@@ -15,6 +15,7 @@
 #include <stddef.h>
 #include <locale.h>
 #include <errno.h>
+#include <ctype.h>
 
 void shecktar_write(const char *input);
 void my_prompt(void);
@@ -25,6 +26,8 @@ char *find_cmd_path(char *command);
 void exe_cmd(const char *cmd_path, char *const argv[]);
 char **sj_get_input(char *input);
 int hndl_cd(char **args);
+char *trim_spaces(char *str);
+
 /********my_getline function******/
 char *shecktar_getline(char *buffer, size_t size, FILE *stream);
 /**********externs***********/

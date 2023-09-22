@@ -1,14 +1,42 @@
 #include "shell.h"
+
 /**
 * my_prompt - function displays my prompt to terminal
 * Return: void
 */
-
 void my_prompt(void)
+{
+	if (isatty(STDIN_FILENO))
+		shecktar_write("$ ");
+}
+
+/**
+* trim_spaces - leading and trailing spaces
+* @str: string to trim
+* Return: trimmed string
+*/
+char *trim_spaces(char *str)
+{
+	char *end;
+	/* Remove leading spaces */
+	while (*str != '\0' && isspace((unsigned char)*str))
 	{
-		if (isatty(STDIN_FILENO))
-			shecktar_write("$ ");
+		str++;
 	}
+
+    /* Remove trailing spaces */
+	end = str + strlen(str) - 1;
+
+	while (end > str && isspace((unsigned char)*end))
+	{
+		end--;
+	}
+
+    /* Write new null terminator */
+	*(end + 1) = '\0';
+
+	return (str);
+}
 
 /**
 * main - Entry point
@@ -17,33 +45,39 @@ void my_prompt(void)
 */
 int main(void)
 {
-		char input[400];
-		char *result = NULL;
-		char **commands;
+	char input[400];
+	char *result = NULL;
+	char **commands;
 
-		while (1)
+	while (1)
+	{
+		char *trimmed_input;
+
+		my_prompt();
+		result = shecktar_getline(input, sizeof(input), stdin);
+		if (result == NULL)
+			break;
+
+		/* Trim leading and trailing spaces */
+		trimmed_input = trim_spaces(input);
+
+		/* we remove new line character */
+		trimmed_input[shecktar_strcspn(trimmed_input, "\n")] = '\0';
+
+		if (sj_strcmp(trimmed_input, "exit") == 0)
+			break;
+
+		if (sj_strcmp(trimmed_input, "env") == 0)
 		{
-			my_prompt();
-			result = shecktar_getline(input, sizeof(input), stdin);
-			if (result == NULL)
-				break;
-
-			/* we remove new line character */
-			input[shecktar_strcspn(input, "\n")] = '\0';
-
-			if (sj_strcmp(input, "exit") == 0)
-				break;
-
-			if (sj_strcmp(input, "env") == 0)
-			{
-				hndl_env();
-				continue;
-			}
-
-			commands = split(input, ";");
-
-			hndl_mul_cmd(commands);
-			free(commands);
+			hndl_env();
+			continue;
 		}
-		return (0);
+
+		commands = split(trimmed_input, ";");
+
+		hndl_mul_cmd(commands);
+		free(commands);
+	}
+	return (0);
 }
+

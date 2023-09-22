@@ -27,6 +27,7 @@ void exe_cmd(const char *cmd_path, char *const argv[]);
 char **sj_get_input(char *input);
 int hndl_cd(char **args);
 char *trim_spaces(char *str);
+int sj_isspace(int c);
 
 /********my_getline function******/
 char *shecktar_getline(char *buffer, size_t size, FILE *stream);

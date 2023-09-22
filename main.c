@@ -19,15 +19,15 @@ char *trim_spaces(char *str)
 {
 	char *end;
 	/* Remove leading spaces */
-	while (*str != '\0' && isspace((unsigned char)*str))
+	while (*str != '\0' && sj_isspace((unsigned char)*str))
 	{
 		str++;
 	}
 
     /* Remove trailing spaces */
-	end = str + strlen(str) - 1;
+	end = str + my_strlen(str) - 1;
 
-	while (end > str && isspace((unsigned char)*end))
+	while (end > str && sj_isspace((unsigned char)*end))
 	{
 		end--;
 	}
@@ -79,5 +79,16 @@ int main(void)
 		free(commands);
 	}
 	return (0);
+}
+
+/**
+* sj_isspace - function removes trailing spaces from code
+* @c: trailing characters
+* Return: 0 success
+*/
+int sj_isspace(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n' ||
+	c == '\v' || c == '\f' || c == '\r');
 }
 

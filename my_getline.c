@@ -14,6 +14,7 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 	static char *ptr;
 	static int charsLeft;
 	size_t i = 0;
+	char *comment_srt;
 
 	if (!buffer || size <= 0 || !stream)
 		return (NULL);
@@ -38,6 +39,14 @@ char *shecktar_getline(char *buffer, size_t size, FILE *stream)
 		return (NULL);
 
 	buffer[i] = '\0';
+
+	comment_srt = strchr(buffer, '#');
+
+	if (comment_srt != NULL && (comment_srt == buffer ||
+		*(comment_srt - 1) == ' '))
+	{
+		*comment_srt = '\0';
+	}
 
 	return (buffer);
 }

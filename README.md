@@ -1,6 +1,6 @@
 # Simple Shell
 
-The project is a simple UNIX command interpreter written as part of the low-level programming and algorithm track at Alx. The shell works like the sh shell. The functions it handles includes but are not limited to:
+This project is a simple UNIX command interpreter written as part of the low-level programming and algorithm track at Alx. The shell works like the sh shell. The functions it handles includes but are not limited to:
 
 * Environment variables handling
 * Commands written with their absolute paths

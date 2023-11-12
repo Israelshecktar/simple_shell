@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Color codes for formatting
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m' # No color
+
+# Attempt to add changes
+git add .
+
+# Check the exit code of git add
+if [ $? -ne 0 ]; then
+    echo -e "${RED}Error:${NC} Failed to add changes to the staging area."
+    exit 1
+fi
+
+echo "Enter commit message >> "
+read -r message
+
+# Check if the commit message is empty
+if [ -z "$message" ]; then
+    echo -e "${YELLOW}Warning:${NC} Commit message is empty. Aborting commit and push."
+else
+    git commit -m "$message"
+    git push
+    echo -e "\n\n${GREEN}DONE${NC}......................... ${GREEN}100%${NC}\n\n"
+fi

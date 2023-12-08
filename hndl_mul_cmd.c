@@ -2,7 +2,7 @@
 /**
 * hndl_mul_cmd - function handles multiple commands
 * @commands: set of commands
-* Return: Nothing
+* Return: void
 */
 void hndl_mul_cmd(char **commands)
 {
